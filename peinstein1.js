@@ -90,7 +90,7 @@
         blocks: [
           [' ', 'connect', 'connect'],
           //[' ', 'is robot ready', 'is_ready'],
-          ['R', 'say %s', 'say','hello']
+          ['R', 'say %s', 'say','hello'],
         ]
       };
 
