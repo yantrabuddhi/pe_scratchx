@@ -4,7 +4,9 @@
     var valid_dongle = false;
     // Extension API interactions
     var potentialDevices = [];
+    ext.resetAll = function(){};
     ext._deviceConnected = function(dev) {
+      console.log('connecting..');
         potentialDevices.push(dev);
 
         if (!device) {
@@ -18,7 +20,7 @@
         device = potentialDevices.shift();
         if (!device) return;
 
-        device.open({ stopBits: 0, bitRate: 115200, ctsFlowControl: 0 });
+        device.open({ bitRate: 115200, ctsFlowControl: 0 });
         device.set_receive_handler(function(data) {
             console.log('Received: ' + data.byteLength);
             //if(!rawData) rawData = new Uint8Array(data);
@@ -90,7 +92,7 @@
         blocks: [
           [' ', 'connect', 'connect'],
           //[' ', 'is robot ready', 'is_ready'],
-          ['R', 'say %s', 'say','hello'],
+          ['w', 'say %s', 'say','hello'],
         ]
       };
 
