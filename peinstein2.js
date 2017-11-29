@@ -35,7 +35,7 @@
                 //console.log('in data' + in_data);
         });
         //set init.lua to load peinstein1.lua
-        device.send('print_dongle()\n');//should return peinstein
+        device.send('\n\nprint_dongle()\n');//should return peinstein
     };
 
     ext._deviceRemoved = function(dev) {
@@ -61,7 +61,7 @@
       if (!device) return;
       console.log('DBG : connect continued'); 	    
       function_state = 1;
-      device.send("connect_tcp()\n");
+      device.send("\n\nconnect_tcp()\n");
     };
 /*
     ext.is_ready = function() {
@@ -72,7 +72,7 @@
     */
     ext.say = function(says,callback) {
       if (!device) return;
-      device.send(says);
+      device.send("\n\nsend_command("+says+")\n");
       window.setTimeout(function(){
         callback();
       },1000);
